@@ -1,1 +1,51 @@
+header {
+  height: 85px;
+  width: 100%;
+  background-color: lightblue;
+}
 
+header > h1 {
+  margin: auto;
+  width: 100%;
+  position: relative;
+  font-size: 2em;
+  left: 25%;
+}
+
+#navBar {
+  position: fixed;
+  right: 10%;
+}
+
+#navBar > ul{
+  list-style: none;
+}
+
+#navBar > ul > li {
+  display: inline;
+  padding: 5px;
+}
+
+.sideBar {
+  width: 200px;
+  height: 100%;
+  background-color: green;
+  position: fixed;
+  z-index: 1;
+  top: 98px;
+  left: 10px;
+  overflow: hidden;
+  padding: 3px;
+}
+
+#imgContainer {
+  display: flex;
+  position: fixed;
+  left: 220px;
+}
+
+#img1, #img2, #img3 {
+  flex: 33.33%;
+  padding: 5px;
+  float: left;
+}
