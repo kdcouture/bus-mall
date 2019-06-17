@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
 <!-- CSS LINK -->
 <link rel="stylesheet" href="./css/style.css" type="text/css">
 
@@ -29,32 +30,36 @@
     </div>
 
     <div id="imgContainer">
-      <div id="img1">
-          <img src="https://placehold.it/200x300/d0d">
+      <div id="img1Div">
+          <img id="img0" src="https://placehold.it/200x300/d0d" style="width: 300px; height: 300px;">
       </div>
 
-      <div id="img2">
-        <img src="https://placehold.it/200x300/ddd">
+      <div id="img2Div">
+        <img id="img1" src="https://placehold.it/200x300/ddd" style="width: 300px; height: 300px;">
       </div>
 
-      <div id="img3">
-          <img src="https://placehold.it/200x300/0dd">
+      <div id="img3Div">
+          <img id="img2" src="https://placehold.it/200x300/0dd" style="width: 300px; height: 300px;">
       </div>
     </div>
 
     <div id="selectButtonGroup">
-      <input type="radio" name="option_1" id="op1" style="margin-right: 150px;">
+      <input type="radio" name="option_1" id="op0" style="margin-right: 150px;">
       <input type="radio" name="option_2" id="op1" style="margin-right: 190px;">
-      <input type="radio" name="option_3" id="op3">
+      <input type="radio" name="option_3" id="op2">
     </div>
 
     <div style="position: fixed; left: 380px; top: 70%;">
-      <input type="button" value="VOTE" style="width: 300px; font-size: 1.2em">
+      <input type="button" value="VOTE" style="width: 300px; font-size: 1.2em" onclick="handleVoteClick()">
     </div>
-    
+
   </main>
 
   <footer></footer>
   
 </body>
+
+<!-- JS LINK -->
+<script src="./app.js"></script>
+
 </html>

@@ -52,7 +52,7 @@ header > h1 {
   left: 220px;
 }
 
-#img1, #img2, #img3 {
+#img1Div, #img2Div, #img3Div {
   flex: 33.33%;
   padding: 5px;
   float: left;
