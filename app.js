@@ -10,6 +10,7 @@ Codefellows 201d57
 // Globals
 var totalClicks = 0;
 var imgCount = 3;
+var maxVoteCount = 25;
 
 // Array of images.
 var imgArr = ['./img/bag.jpg','./img/banana.jpg','./img/bathroom.jpg','./img/boots.jpg','./img/breakfast.jpg','./img/bubblegum.jpg','./img/chair.jpg','./img/cthulhu.jpg','./img/dog-duck.jpg','./img/dragon.jpg','./img/pen.jpg','./img/pet-sweep.jpg','./img/scissors.jpg','./img/shark.jpg','./img/sweep.png','./img/tauntaun.jpg','./img/unicorn.jpg','./img/usb.gif','./img/water-can.jpg','./img/wine-glass.jpg'];
@@ -40,7 +41,7 @@ function handleImgClick(event) {
     imgObjArr[prevThree[imgIdx]].viewCount++;
   }
   findImg(trgEleSrc.substring(trgEleSrc.indexOf('/img')));
-  if(totalClicks >= 4) {
+  if(totalClicks >= (maxVoteCount-1)) {
     removeEventLists();
     genResultList();
   }
@@ -108,8 +109,7 @@ function genImages(count) {
 // Function Calls
 
 // Create a few test img objects.
-// for(var t = 0; t < imgArr.length; t++) {
-  for(var t = 0; t < 6; t++) {
+for(var t = 0; t < imgArr.length; t++) {
   var tempImgObj = new ImgObj(t, imgArr[t], t);
   imgObjArr.push(tempImgObj);
 }
