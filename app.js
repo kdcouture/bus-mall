@@ -25,13 +25,17 @@ var imgObjArr = [];
 var prevThree = ['', '', ''];
 
 // img Constructor
-var ImgObj = function(inName, inURL, inID){
-  this.name = inName;
+var ImgObj = function(inURL, inID){
+  this.name = imgNameRip(inURL);
   this.url = inURL;
   this.id = inID;
   this.clickCount = 0;
   this.viewCount = 0;
 };
+
+function imgNameRip(inURL) {
+  return inURL.substring(6,inURL.indexOf('.',7));
+}
 
 // Currently a test function that will generate 3 new images.
 function handleVoteClick(){
@@ -159,7 +163,7 @@ function genChart() {
 
 // Create a few test img objects.
 for(var t = 0; t < imgArr.length; t++) {
-  var tempImgObj = new ImgObj(t, imgArr[t], t);
+  var tempImgObj = new ImgObj(imgArr[t], t);
   imgObjArr.push(tempImgObj);
 }
 
