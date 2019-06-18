@@ -83,6 +83,7 @@ function genResultList() {
     liEle.textContent = 'Name: ' + imgObjArr[i].name + ' | Click Count : ' + imgObjArr[i].clickCount + ' | View Count : ' + imgObjArr[i].viewCount + ' | Percent click/view : ' + (100*(imgObjArr[i].clickCount/imgObjArr[i].viewCount)).toFixed(2);
     ulEle.appendChild(liEle);
   }
+  genChart();
 }
 
 /*
@@ -109,30 +110,17 @@ function genImages(count) {
   prevThree = nextThree;
 }
 
+// Chart creation.
 var ctx = document.getElementById('chart').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: [],
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
+      label: '% of Votes',
+      data: [],
+      backgroundColor: [],
+      borderColor: [],
       borderWidth: 1
     }]
   },
@@ -146,6 +134,26 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+
+// Generate function for the chart.
+function genChart() {
+  var colorStr = '';
+  var r,g,b;
+  for(var c = 0; c < imgObjArr.length; c++) {
+    myChart.config.data.labels.push(imgObjArr[c].name);
+    myChart.config.data.datasets[0].data.push((100*(imgObjArr[c].clickCount/imgObjArr[c].viewCount)).toFixed(2));
+
+    r = Math.random()*255;
+    g = Math.random()*255;
+    b = Math.random()*255;
+
+    colorStr = 'rgba(' + r + ',' + g + ',' + b + ', .2)';
+    myChart.config.data.datasets[0].backgroundColor.push(colorStr);
+    colorStr = 'rgba(' + r + ',' + g + ',' + b + ', 1)';
+    myChart.config.data.datasets[0].borderColor.push(colorStr);
+  }
+  myChart.update();
+}
 
 // Function Calls
 
