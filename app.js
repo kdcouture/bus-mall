@@ -36,13 +36,15 @@ function handleVoteClick(){
 
 function handleImgClick(event) {
   var trgEleSrc = event.target.src;
-  var test = event.target;
-  console.log(test);
-  if(totalClicks >= 5) {
+  for(var imgIdx = 0; imgIdx < prevThree.length; imgIdx++) {
+    imgObjArr[prevThree[imgIdx]].viewCount++;
+  }
+  findImg(trgEleSrc.substring(trgEleSrc.indexOf('/img')));
+  if(totalClicks >= 4) {
     removeEventLists();
+    genResultList();
   }
   else {
-    findImg(trgEleSrc.substring(trgEleSrc.indexOf('/img')));
     genImages(3);
   }
   totalClicks++;
@@ -69,6 +71,16 @@ document.getElementById('img0').addEventListener('click', handleImgClick);
 document.getElementById('img1').addEventListener('click', handleImgClick);
 document.getElementById('img2').addEventListener('click', handleImgClick);
 
+function genResultList() {
+  var ulEle, liEle;
+  ulEle = document.getElementById('resList');
+  for(var i = 0; i < imgObjArr.length; i++) {
+    liEle = document.createElement('li');
+    liEle.textContent = 'Name: ' + imgObjArr[i].name + ' | Click Count : ' + imgObjArr[i].clickCount + ' | View Count : ' + imgObjArr[i].viewCount + ' | Percent click/view : ' + (100*(imgObjArr[i].clickCount/imgObjArr[i].viewCount)).toFixed(2);
+    ulEle.appendChild(liEle);
+  }
+}
+
 /*
 @func genImages
 @param count - an integer count of the number of images to generate (locked in at 3 currently)
@@ -89,7 +101,6 @@ function genImages(count) {
     }
     nextThree[i] = nextImg.id;
     tempEle.src = nextImg.url;
-    nextImg.viewCount++;
   }
   prevThree = nextThree;
 }
