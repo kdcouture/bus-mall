@@ -117,7 +117,7 @@ var myChart = new Chart(ctx, {
   data: {
     labels: [],
     datasets: [{
-      label: '% of Votes',
+      label: '% of Clicks per Views',
       data: [],
       backgroundColor: [],
       borderColor: [],
