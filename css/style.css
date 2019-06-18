@@ -35,21 +35,31 @@ header > h1 {
 }
 
 .sideBar {
+  display: flex;
   width: 200px;
   height: 100%;
   background-color: green;
-  position: fixed;
+  position: relative;
   z-index: 1;
-  top: 98px;
-  left: 10px;
+  top: 0px;
+  left: opx;
   /* overflow: hidden; */
   padding: 3px;
+}
+
+#leftCol {
+  position: fixed;
+  width: 150px;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
 }
 
 #imgContainer {
   display: flex;
   position: fixed;
   left: 220px;
+  top: 100px;
 }
 
 #img1Div, #img2Div, #img3Div {
