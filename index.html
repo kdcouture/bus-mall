@@ -25,6 +25,27 @@
 
   <main>
 
+    <!-- Image section -->
+    <div id="imgContainer">
+      <div id="img1Div">
+        <img id="img0" src="https://placehold.it/200x300/d0d" style="width: 300px; height: 300px;">
+      </div>
+      
+      <div id="img2Div">
+        <img id="img1" src="https://placehold.it/200x300/ddd" style="width: 300px; height: 300px;">
+      </div>
+      
+      <div id="img3Div">
+        <img id="img2" src="https://placehold.it/200x300/0dd" style="width: 300px; height: 300px;">
+      </div>
+
+      <div style="position: relative; left: -700px; top: 400px;">
+          <input type="button" value="Load new image set" style="width: 300px; font-size: 1.2em" onclick="handleVoteClick()">
+        </div>
+
+    </div>
+    
+    <!-- SideBar -->
     <div class="sideBar">
       <div id="leftCol"></div>
       <ul id="resList">
@@ -32,18 +53,11 @@
       </ul>
     </div>
 
-    <div id="imgContainer">
-      <div id="img1Div">
-          <img id="img0" src="https://placehold.it/200x300/d0d" style="width: 300px; height: 300px;">
-      </div>
-
-      <div id="img2Div">
-        <img id="img1" src="https://placehold.it/200x300/ddd" style="width: 300px; height: 300px;">
-      </div>
-
-      <div id="img3Div">
-          <img id="img2" src="https://placehold.it/200x300/0dd" style="width: 300px; height: 300px;">
-      </div>
+    <!-- chart section -->
+    <div id="chartZone">
+      <canvas id="chart">
+        
+      </canvas>
     </div>
 
     <!-- <div id="selectButtonGroup">
@@ -51,10 +65,6 @@
       <input type="radio" name="option_2" id="op1" style="margin-right: 190px;">
       <input type="radio" name="option_3" id="op2">
     </div> -->
-
-    <div style="position: fixed; left: 380px; top: 70%;">
-      <input type="button" value="Load new image set" style="width: 300px; font-size: 1.2em" onclick="handleVoteClick()">
-    </div>
 
   </main>
 

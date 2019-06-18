@@ -21,8 +21,8 @@ header > h1 {
 }
 
 #navBar {
-  position: fixed;
-  right: 10%;
+  position: relative;
+  left: 0px;
 }
 
 #navBar > ul{
@@ -41,8 +41,8 @@ header > h1 {
   background-color: green;
   position: relative;
   z-index: 1;
-  top: 0px;
-  left: opx;
+  top: -308px;
+  left: 0px;
   /* overflow: hidden; */
   padding: 3px;
 }
@@ -57,9 +57,10 @@ header > h1 {
 
 #imgContainer {
   display: flex;
-  position: fixed;
-  left: 220px;
-  top: 100px;
+  position: relative;
+  left: 210px;
+  top: 0px;
+  width: 990px;
 }
 
 #img1Div, #img2Div, #img3Div {
