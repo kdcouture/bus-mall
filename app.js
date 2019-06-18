@@ -108,7 +108,7 @@ function genImages(count) {
 // Function Calls
 
 // Create a few test img objects.
-for(var t = 0; t < 9; t++) {
+for(var t = 0; t < imgArr.length; t++) {
   var tempImgObj = new ImgObj(t, imgArr[t], t);
   imgObjArr.push(tempImgObj);
 }
