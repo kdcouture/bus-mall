@@ -116,7 +116,9 @@ function imgNameRip(inURL) {
 // eslint-disable-next-line no-unused-vars
 function handleVoteClick(){
   localStorage.clear();
+  imgObjArr = [];
   createImgObjArray();
+  genResultList();
 }
 
 function handleImgClick(event) {
@@ -216,6 +218,7 @@ function storeImgObjArr(){
 function genResultList() {
   var ulEle, liEle;
   ulEle = document.getElementById('resList');
+  ulEle.innerHTML = '';
   for(var i = 0; i < imgObjArr.length; i++) {
     liEle = document.createElement('li');
     liEle.textContent = 'Name: ' + imgObjArr[i].name + ' | Click Count : ' + imgObjArr[i].clickCount + ' | View Count : ' + imgObjArr[i].viewCount + ' | Percent click/view : ' + (100*(imgObjArr[i].clickCount/imgObjArr[i].viewCount)).toFixed(2);
