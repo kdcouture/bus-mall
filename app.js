@@ -116,7 +116,12 @@ function imgNameRip(inURL) {
 // eslint-disable-next-line no-unused-vars
 function handleVoteClick(){
   localStorage.clear();
+  totalClicks = 0;
   imgObjArr = [];
+  // Attach listeners
+  document.getElementById('img0').addEventListener('click', handleImgClick);
+  document.getElementById('img1').addEventListener('click', handleImgClick);
+  document.getElementById('img2').addEventListener('click', handleImgClick);
   createImgObjArray();
   genResultList();
 }
