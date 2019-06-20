@@ -7,9 +7,6 @@ Codefellows 201d57
 
 'use strict';
 
-// import Chart from 'chart.js';
-// var Chart = require('chart.js');
-
 // img Constructor
 var ImgObj = function(inURL, inID){
   this.name = imgNameRip(inURL);
@@ -70,7 +67,8 @@ var imgArr = ['./img/bag.jpg','./img/banana.jpg','./img/bathroom.jpg','./img/boo
 
 // Array of image objects.
 var imgObjArr = [];
-// Pull data from local storage if exists
+
+// Pull data from local storage if exists also verify its existance.
 if (localStorageExists && localStorage.getItem('imgObjArr') !== null) {
   imgObjArr = pullImgObjArr();
   totalClicks = parseInt(localStorage['totalClicks']);
@@ -85,6 +83,7 @@ else {
 
 // Array holds the last 3 image id's that were in the selection last.
 var prevThree = ['', '', ''];
+
 
 //
 // Functions
@@ -172,6 +171,9 @@ function storeData() {
 }
 
 // Creates imgObj from our localstorage data string
+/*
+  This function acts as a custom JSON parse function.
+*/
 function strToImgObjArr(dataStr){
   var name, url, id, clicks, views, commaCounter = 0, colonCounter = 0;
 
